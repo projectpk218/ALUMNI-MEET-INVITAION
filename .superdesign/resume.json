@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "targets": {
+    "/": {
+      "targetKind": "existing-ui",
+      "projectId": "71387201-f0c7-40f8-8d63-890f287246d2",
+      "activeDraftId": "dbbf7212-e56b-4231-85ea-dae977e5a916",
+      "designSystemPath": ".superdesign/design-system.md",
+      "referenceIds": [
+        "srm-tiruchirappalli",
+        "sdg4",
+        "sdg17"
+      ],
+      "brandAssets": {
+        "logo": {
+          "assetKey": "srm-tiruchirappalli",
+          "url": "https://vgbujcuwptvheqijyjbe.supabase.co/storage/v1/object/public/hmac-uploads/projects/71387201-f0c7-40f8-8d63-890f287246d2/brand-assets/srm-tiruchirappalli/srm-logo.jpg",
+          "sourcePath": "dist/assets/srm-logo.jpg"
+        }
+      },
+      "contextFiles": [
+        ".superdesign/design-system.md",
+        "src/homecoming.template.html",
+        "dist/homecoming.css",
+        "dist/homecoming.js",
+        "dist/event-config.js"
+      ],
+      "fingerprints": {
+        ".superdesign/design-system.md": "47532440c67075d78c0d170db17b8698237ab3db96757ccf7cc4e58c69c6f8e8",
+        "src/homecoming.template.html": "250f9324906792997c103ef7b6ab7e35ecc6c9215151bfba8eae08be6ba8c317",
+        "dist/homecoming.css": "3ac8fb8e652e6eadf57cdbc28457aee490852d933552b6bbcc7d7d535f95cfc4",
+        "dist/homecoming.js": "44cbf100d9187cec7857bbaf82807e6404d6cc2e0bfacc11a1f76486ac46a098",
+        "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb"
+      },
+      "components": [],
+      "drafts": {
+        "dbbf7212-e56b-4231-85ea-dae977e5a916": {
+          "title": "Reminisce\u201926 \u2014 The Homecoming Invitation",
+          "visualDirection": "Wax-sealed letter opening into a continuous illustrated reunion invitation",
+          "currentVersion": 2
+        }
+      }
+    }
+  }
+}
