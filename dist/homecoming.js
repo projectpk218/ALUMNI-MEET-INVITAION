@@ -3,17 +3,40 @@
   const event = window.ALUMNI_EVENT, $ = id => document.getElementById(id);
   const gate = $('arrival-screen'), main = $('homecoming'), seal = $('open-letter');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const music = $('reunion-music'), musicToggle = $('music-toggle');
+  let musicWanted = true;
+  music.volume = .42;
+  function updateMusicControl() {
+    const playing = !music.paused;
+    musicToggle.setAttribute('aria-pressed', String(playing));
+    musicToggle.setAttribute('aria-label', playing ? 'Mute reunion music' : 'Play reunion music');
+    $('music-label').textContent = playing ? 'Music on' : 'Music off';
+  }
+  function playMusic() { if (musicWanted) music.play().catch(updateMusicControl); }
+  music.addEventListener('play', updateMusicControl);
+  music.addEventListener('pause', updateMusicControl);
+  music.addEventListener('error', () => { $('music-label').textContent = 'Retry music'; });
+  musicToggle.addEventListener('click', () => {
+    musicWanted = music.paused;
+    if (musicWanted) playMusic(); else music.pause();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) music.pause();
+    else if (gate.hidden && musicWanted) playMusic();
+  });
   let opening = false, openTimer;
   function finishOpening() {
     window.scrollTo({top:0,behavior:'instant'});
     gate.classList.add('departed'); main.inert = false;
     document.body.classList.remove('sealed');
+    musicToggle.hidden = false;
     $('welcome-home').focus({preventScroll:true});
     setTimeout(() => { gate.hidden = true; opening = false; }, reduced.matches ? 0 : 1000);
   }
   function openLetter() {
     if (opening) return;
     opening = true; seal.disabled = true;
+    playMusic();
     gate.classList.add('opening');
     openTimer = setTimeout(finishOpening, reduced.matches ? 0 : 1750);
   }
@@ -22,6 +45,7 @@
     window.scrollTo({top:0,behavior:'instant'});
     gate.hidden = false; gate.classList.remove('opening','departed');
     document.body.classList.add('sealed'); main.inert = true;
+    musicToggle.hidden = true; music.pause();
     seal.focus({preventScroll:true});
   }
   seal.addEventListener('click',openLetter);
@@ -33,12 +57,21 @@
       if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
     }), {threshold:0.12,rootMargin:'0px 0px -20px 0px'});
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const ceremony = $('ceremonial-reveal');
+    ceremony.classList.add('ready-to-unfold');
+    const unfoldObserver = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        ceremony.classList.add('unfolded');
+        unfoldObserver.disconnect();
+      }
+    }, {threshold: .15});
+    unfoldObserver.observe(ceremony);
   }
   function countdown() {
     const seconds = Math.max(0,Math.floor((new Date(event.startISO)-Date.now())/1000));
-    const values = {days:Math.floor(seconds/86400),hours:Math.floor(seconds/3600)%24,minutes:Math.floor(seconds/60)%60};
+    const values = {days:Math.floor(seconds/86400),hours:Math.floor(seconds/3600)%24,minutes:Math.floor(seconds/60)%60,seconds:seconds%60};
     Object.entries(values).forEach(([key,value])=>document.querySelector(`[data-count="${key}"]`).textContent=String(value).padStart(2,'0'));
-    document.querySelector('.countdown').setAttribute('aria-label',`${values.days} days, ${values.hours} hours, ${values.minutes} minutes until registration`);
+    document.querySelector('.countdown').setAttribute('aria-label',`${values.days} days, ${values.hours} hours, ${values.minutes} minutes, ${values.seconds} seconds until registration`);
     if (!seconds) document.querySelector('.countdown-wrap>p').textContent = Date.now()<new Date(event.endISO)?'Today, we come together.':'Reminisce’26 · 17 October 2026';
   }
   const escape = value=>value.replace(/\\/g,'\\\\').replace(/\n/g,'\\n').replace(/,/g,'\\,').replace(/;/g,'\\;');
@@ -56,5 +89,5 @@
     try { if(navigator.share) await navigator.share({title:'Reminisce’26 — You’ve been missed.',text:'We left with dreams. Let’s return with stories. SRM alumni homecoming · 17 October 2026.',url}); else {await navigator.clipboard.writeText(url);$('action-message').textContent='Invitation link copied. Send a little nostalgia to an old friend.';} }
     catch(error){if(error.name!=='AbortError')$('action-message').textContent='Share this invitation: '+url;}
   });
-  countdown();setInterval(countdown,30000);
+  countdown();setInterval(countdown,1000);
 })();

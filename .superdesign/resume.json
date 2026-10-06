@@ -27,9 +27,9 @@
       ],
       "fingerprints": {
         ".superdesign/design-system.md": "47532440c67075d78c0d170db17b8698237ab3db96757ccf7cc4e58c69c6f8e8",
-        "src/homecoming.template.html": "250f9324906792997c103ef7b6ab7e35ecc6c9215151bfba8eae08be6ba8c317",
-        "dist/homecoming.css": "3ac8fb8e652e6eadf57cdbc28457aee490852d933552b6bbcc7d7d535f95cfc4",
-        "dist/homecoming.js": "44cbf100d9187cec7857bbaf82807e6404d6cc2e0bfacc11a1f76486ac46a098",
+        "src/homecoming.template.html": "246e6a32dc1c806ad775c8c1788e189eec55c768e6e786bf7d2d0b10ad7b7da3",
+        "dist/homecoming.css": "4390d0786e0049753ac0201197a11b15b7b66299dac13781845c3ff06801f74a",
+        "dist/homecoming.js": "36176d2276c01e23660e4bfc6bfcb23639a4e598d621771572be19bc4fb9a3e4",
         "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb"
       },
       "components": [],
@@ -37,7 +37,7 @@
         "dbbf7212-e56b-4231-85ea-dae977e5a916": {
           "title": "Reminisce\u201926 \u2014 The Homecoming Invitation",
           "visualDirection": "Wax-sealed letter opening into a continuous illustrated reunion invitation",
-          "currentVersion": 2
+          "currentVersion": 3
         }
       }
     }
