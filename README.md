@@ -1,18 +1,11 @@
-# Alumni invitation website
+# Reminisce’26 — Alumni homecoming invitation
 
-An original, responsive invitation website built around a personal opening, editorial reunion story, event facts, programme, countdown, venue, RSVP and practical questions. The wedding invitation was used only to understand the experience, not as a visual template or source of code/assets.
+This is a continuous digital invitation for SRM Tiruchirappalli alumni. Guests open a sealed envelope, watch the letter emerge, and scroll through a short reunion story to the formal invitation and event details. The wording, event details, and authentic SRM/SDG marks came from the supplied invitation PDF. The wedding invitation shared by the requester informed the experience only; its design and assets were not reused.
 
-The site is in `dist/`. Change approved event details in `dist/event-config.js`. No event facts, logos, photographs, dates, attendance figures or testimonials have been invented. The architectural illustration is abstract, not a depiction of a real institution. Replace it with approved photography through `heroImageUrl` and `heroImageAlt` if desired.
+The publishable site is in `dist/`. To change approved event information, edit `dist/event-config.js`; to change the invitation layout, edit `src/homecoming.template.html` and run `node build-invitation.cjs`. `dist/homecoming.css` and `dist/polish.css` supply the styling, while `dist/homecoming.js` controls the opening, music, countdown, calendar, sharing, and replay. The original instrumental soundtrack is in `dist/assets/homecoming-piano.wav`.
 
-- Set `rsvpUrl` to the official registration page to activate RSVP. This site does not collect or store responses itself.
-- Set `mapUrl` to enable directions.
-- Supply `startISO` with an explicit time-zone offset to activate the countdown. Set `endISO` when known. Calendar export activates after the date and event name are supplied; no duration is invented.
-- Enter valid contact details to activate email and phone links.
-- Optional `?guest=Name` personalises the opening. The share button strips the guest name from shared URLs.
-- Public joining credentials must be sent separately to confirmed attendees.
-- Desktop and mobile navigation, reduced-motion preferences, keyboard controls and semantic document structure are supported.
-- Google Fonts are optional: local Georgia and Arial fallbacks keep the website usable offline.
+The site includes no RSVP collection or invented contact information. It honors reduced-motion preferences and remains readable without JavaScript. The official logos are unchanged; the formal letter’s bright ivory field blends their white image backgrounds into the paper.
 
-Deployment starts private for review. A private review URL cannot be used as a public invitation until sharing is explicitly changed. All bracketed placeholders must be replaced before inviting alumni.
+## GitHub Pages
 
-The static `dist/` folder can also be deployed to a static host. No account, server or package installation is needed to edit the files locally.
+The workflow in `.github/workflows/deploy-pages.yml` publishes `dist/` from the `main` branch. Once this repository is connected to a GitHub repository, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**, then push `main` or run the workflow manually. Set the Open Graph URL and preview image URL in `src/homecoming.template.html` to the final GitHub Pages address and rebuild before publishing. A project repository serves the invitation at `https://OWNER.github.io/REPO/`; a repository named `OWNER.github.io` serves it at the root domain.

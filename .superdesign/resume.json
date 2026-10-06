@@ -23,23 +23,26 @@
         "src/homecoming.template.html",
         "dist/homecoming.css",
         "dist/homecoming.js",
-        "dist/event-config.js"
+        "dist/event-config.js",
+        "dist/polish.css"
       ],
       "fingerprints": {
-        ".superdesign/design-system.md": "47532440c67075d78c0d170db17b8698237ab3db96757ccf7cc4e58c69c6f8e8",
-        "src/homecoming.template.html": "246e6a32dc1c806ad775c8c1788e189eec55c768e6e786bf7d2d0b10ad7b7da3",
-        "dist/homecoming.css": "4390d0786e0049753ac0201197a11b15b7b66299dac13781845c3ff06801f74a",
-        "dist/homecoming.js": "36176d2276c01e23660e4bfc6bfcb23639a4e598d621771572be19bc4fb9a3e4",
-        "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb"
+        ".superdesign/design-system.md": "e4d666ffc8d8bd1b4eb0092c99ebe1a8df83d507d045fce32f1b62d7dbd4e692",
+        "src/homecoming.template.html": "c66ea7de3a5e50beb41087a3e32d93b3ff8c4518fd4b78acfec5ebe7c8ac7f66",
+        "dist/homecoming.css": "43c81ba818155cd80ab8f868674728f4ecb88b5bdffe75d99bb5f3915c0ce03b",
+        "dist/homecoming.js": "4d1fdc2554191a03720f11484e80f01204a58be72a44a871c6726d39a0e95b0e",
+        "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb",
+        "dist/polish.css": "c121518de01c697e37f385191b10944209a3d23aba5ab4173f1303b13d7eea04"
       },
       "components": [],
       "drafts": {
         "dbbf7212-e56b-4231-85ea-dae977e5a916": {
-          "title": "Reminisce\u201926 \u2014 The Homecoming Invitation",
-          "visualDirection": "Wax-sealed letter opening into a continuous illustrated reunion invitation",
-          "currentVersion": 3
+          "title": "Reminisce’26 — The Homecoming Invitation",
+          "visualDirection": "Slower tactile letter opening, nostalgic continuous homecoming, legible paper typography and blended official marks",
+          "currentVersion": 9
         }
-      }
+      },
+      "updatedAt": "2026-10-06T13:50:24.940Z"
     }
   }
 }

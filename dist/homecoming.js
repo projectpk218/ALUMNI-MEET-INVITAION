@@ -24,27 +24,40 @@
     if (document.hidden) music.pause();
     else if (gate.hidden && musicWanted) playMusic();
   });
-  let opening = false, openTimer;
+  let opening = false, openTimer, gateTimer;
+  const chapters = [...document.querySelectorAll('.memories, .quote-section, .the-letter, .come-home')];
+  let chapterObserver;
+  if ('IntersectionObserver' in window) {
+    chapterObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      entry.target.classList.toggle('chapter-entered', entry.isIntersecting);
+    }), {threshold: .08, rootMargin: '0px 0px -8% 0px'});
+  }
   function finishOpening() {
     window.scrollTo({top:0,behavior:'instant'});
     gate.classList.add('departed'); main.inert = false;
     document.body.classList.remove('sealed');
+    main.classList.add('invitation-awake');
+    if (chapterObserver) chapters.forEach(chapter => chapterObserver.observe(chapter));
     musicToggle.hidden = false;
     $('welcome-home').focus({preventScroll:true});
-    setTimeout(() => { gate.hidden = true; opening = false; }, reduced.matches ? 0 : 1000);
+    gateTimer = setTimeout(() => { gate.hidden = true; opening = false; }, reduced.matches ? 0 : 1150);
   }
   function openLetter() {
     if (opening) return;
     opening = true; seal.disabled = true;
     playMusic();
     gate.classList.add('opening');
-    openTimer = setTimeout(finishOpening, reduced.matches ? 0 : 1750);
+    openTimer = setTimeout(finishOpening, reduced.matches ? 0 : 4250);
   }
   function resetLetter() {
-    clearTimeout(openTimer); opening = false; seal.disabled = false;
+    clearTimeout(openTimer); clearTimeout(gateTimer); opening = false; seal.disabled = false;
     window.scrollTo({top:0,behavior:'instant'});
     gate.hidden = false; gate.classList.remove('opening','departed');
     document.body.classList.add('sealed'); main.inert = true;
+    main.classList.remove('invitation-awake');
+    if (chapterObserver) chapterObserver.disconnect();
+    chapters.forEach(chapter => chapter.classList.remove('chapter-entered'));
+    $('ceremonial-reveal').classList.remove('unfolded');
     musicToggle.hidden = true; music.pause();
     seal.focus({preventScroll:true});
   }
@@ -60,10 +73,7 @@
     const ceremony = $('ceremonial-reveal');
     ceremony.classList.add('ready-to-unfold');
     const unfoldObserver = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) {
-        ceremony.classList.add('unfolded');
-        unfoldObserver.disconnect();
-      }
+      entries.forEach(entry => ceremony.classList.toggle('unfolded', entry.isIntersecting));
     }, {threshold: .15});
     unfoldObserver.observe(ceremony);
   }
