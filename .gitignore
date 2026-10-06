@@ -1,0 +1,4 @@
+.superdesign/tmp/
+qa/
+*.tar.gz
+*.zip

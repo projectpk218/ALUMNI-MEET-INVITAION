@@ -1,0 +1,13 @@
+const fs = require('fs'), path = require('path'), vm = require('vm');
+const root = __dirname;
+const context = {window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(root,'dist/event-config.js'),'utf8'),context);
+const event = context.window.ALUMNI_EVENT;
+const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const person = p => `<div class="person"><h3>${escape(p.name)}</h3><p class="person-role">${escape(p.role)}</p><p class="person-institution">${escape(p.institution)}</p>${p.location?`<p class="person-location">${escape(p.location)}</p>`:''}</div>`;
+const schedule = event.programme.map(([time,title])=>`<li><time>${escape(time)}</time><span>${escape(title)}</span></li>`).join('\n');
+const html = fs.readFileSync(path.join(root,'src/invitation.template.html'),'utf8').replace('{{LEADERSHIP}}',event.leadership.map(person).join('\n')).replace('{{HOSTS}}',event.hosts.map(person).join('\n')).replace('{{PROGRAMME}}',schedule);
+if (/\{\{[A-Z]+\}\}/.test(html)) throw Error('Unresolved source marker');
+if (event.programme.length!==16 || event.leadership.length!==4 || event.hosts.length!==3) throw Error('Source count mismatch');
+fs.writeFileSync(path.join(root,'dist/index.html'),html);
+console.log('Invitation built: 7 scenes, 7 dignitaries/hosts, 16 programme entries.');
