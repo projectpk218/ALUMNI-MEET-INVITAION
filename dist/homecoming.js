@@ -24,7 +24,21 @@
     if (document.hidden) music.pause();
     else if (gate.hidden && musicWanted) playMusic();
   });
-  let opening = false, openTimer, gateTimer;
+  let opening = false, openTimer, gateTimer, untieTimer;
+  const ceremony = $('ceremonial-reveal'), threadButton = $('untie-invitation'), ceremonyContent = $('ceremony-content');
+  ceremony.classList.add('ready-to-unfold');
+  ceremonyContent.setAttribute('aria-hidden', 'true');
+  threadButton.addEventListener('click', () => {
+    if (ceremony.classList.contains('unfolded')) return;
+    ceremony.classList.add('unfolded');
+    ceremonyContent.removeAttribute('aria-hidden');
+    threadButton.setAttribute('aria-expanded', 'true');
+    threadButton.disabled = true;
+    untieTimer = setTimeout(() => {
+      threadButton.hidden = true;
+      $('reminisce-title').focus();
+    }, reduced.matches ? 0 : 1750);
+  });
   const chapters = [...document.querySelectorAll('.memories, .quote-section, .the-letter, .come-home')];
   let chapterObserver;
   if ('IntersectionObserver' in window) {
@@ -50,14 +64,17 @@
     openTimer = setTimeout(finishOpening, reduced.matches ? 0 : 4250);
   }
   function resetLetter() {
-    clearTimeout(openTimer); clearTimeout(gateTimer); opening = false; seal.disabled = false;
+    clearTimeout(openTimer); clearTimeout(gateTimer); clearTimeout(untieTimer); opening = false; seal.disabled = false;
     window.scrollTo({top:0,behavior:'instant'});
     gate.hidden = false; gate.classList.remove('opening','departed');
     document.body.classList.add('sealed'); main.inert = true;
     main.classList.remove('invitation-awake');
     if (chapterObserver) chapterObserver.disconnect();
     chapters.forEach(chapter => chapter.classList.remove('chapter-entered'));
-    $('ceremonial-reveal').classList.remove('unfolded');
+    ceremony.classList.remove('unfolded');
+    ceremonyContent.setAttribute('aria-hidden', 'true');
+    threadButton.hidden = false; threadButton.disabled = false;
+    threadButton.setAttribute('aria-expanded', 'false');
     musicToggle.hidden = true; music.pause();
     seal.focus({preventScroll:true});
   }
@@ -70,12 +87,6 @@
       if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
     }), {threshold:0.12,rootMargin:'0px 0px -20px 0px'});
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    const ceremony = $('ceremonial-reveal');
-    ceremony.classList.add('ready-to-unfold');
-    const unfoldObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => ceremony.classList.toggle('unfolded', entry.isIntersecting));
-    }, {threshold: .15});
-    unfoldObserver.observe(ceremony);
   }
   function countdown() {
     const seconds = Math.max(0,Math.floor((new Date(event.startISO)-Date.now())/1000));
