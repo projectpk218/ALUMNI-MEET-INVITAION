@@ -27,22 +27,22 @@
         "dist/polish.css"
       ],
       "fingerprints": {
-        ".superdesign/design-system.md": "6c69e294d91cd7fb8e38946393afadeb2700f4d593ef1602253a2d9c76c8a9ec",
-        "src/homecoming.template.html": "4fb52b5bc4975377f8a616b011ac97194a21c37ec1ab7490e1d03a83a8f69877",
+        ".superdesign/design-system.md": "9d878571bc046c35134cbcd5187a8a34a726a960ce61d0f1696e80821741a94f",
+        "src/homecoming.template.html": "dcc8555bf3f55b23b3b81c9023a27efcbd0ad43d9caa579fd64da98ec89bb55d",
         "dist/homecoming.css": "df7e4f61c3c723bef963055c99eaa4067c677eb3cf6cda75e94d35b44a118e27",
-        "dist/homecoming.js": "36c1c1b346792d3432b978a3d7edc793b2542b60127c37795f80860040a38428",
+        "dist/homecoming.js": "e9ad30eb453911460c1ab43f909e59e1b2670ce7c08c45425bffc56be02eee5f",
         "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb",
-        "dist/polish.css": "f08a54bdb6cbcfec2e2850336bb0c5275aa64a1d5d13ba11be680f937a467bf4"
+        "dist/polish.css": "2db66648bff529f19ac910899ca89233f77fceda5f2fcb4bd7b28ce843930920"
       },
       "components": [],
       "drafts": {
         "dbbf7212-e56b-4231-85ea-dae977e5a916": {
           "title": "Reminisce’26 — The Homecoming Invitation",
-          "visualDirection": "Sealed opening letter, guest-operated gold thread knot, and supplied reunion soundtrack",
-          "currentVersion": 15
+          "visualDirection": "Sealed opening letter, large guest-operated cord with staged untying, and supplied reunion soundtrack",
+          "currentVersion": 17
         }
       },
-      "updatedAt": "2026-10-06T14:47:43.193Z"
+      "updatedAt": "2026-10-06T17:40:31.459Z"
     }
   }
 }
