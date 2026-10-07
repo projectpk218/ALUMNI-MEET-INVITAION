@@ -28,23 +28,23 @@
         "src/cord-markup.html"
       ],
       "fingerprints": {
-        ".superdesign/design-system.md": "aff9e8be7f23e1fe2f61f2122c0085c6a28ace516c2ba9df44d3762706aaa06f",
-        "src/homecoming.template.html": "26c681f621b9dbb9cbe26553a6476e8429b3d862a3a610060c5a0108378d938c",
+        ".superdesign/design-system.md": "3bd8f7b07934344d0325888aa1a92a8f377abfd6150a150bf86bd5422f7b330c",
+        "src/homecoming.template.html": "1dfc880fc339377446831f5e4f6db95ddd452c7680fd178846171b80b9333eb8",
         "dist/homecoming.css": "df7e4f61c3c723bef963055c99eaa4067c677eb3cf6cda75e94d35b44a118e27",
-        "dist/homecoming.js": "5ea283dbcebd18f7831d1e871ad76fd48086bed18c80dee4d512501b4682e906",
+        "dist/homecoming.js": "a418cf5ae635a3d7c7dbe97bf38bada5b84d1c230fd33362efe09cd4d37b4f49",
         "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb",
-        "dist/polish.css": "ac39234066719c8d0d079c003fd511d426a085f64206890d7bd022ab69226202",
+        "dist/polish.css": "8bd3a7d07e291c1ad29ed8f33c034a6c46ce0d1291d0cb319d9f97a301b1c1a7",
         "src/cord-markup.html": "bdb1ae12842607c5beefab6223e4aab5a91822553aee47b0f2cb118bf79a6f80"
       },
       "components": [],
       "drafts": {
         "dbbf7212-e56b-4231-85ea-dae977e5a916": {
           "title": "Reminisce’26 — The Homecoming Invitation",
-          "visualDirection": "Sealed opening letter, keepsake sleeve with textured cord that tightens, slips through each loop, then falls away; supplied reunion soundtrack",
-          "currentVersion": 21
+          "visualDirection": "Sealed opening letter, keepsake sleeve with textured cord; corrected alumni greeting and formal invitation copy with Kaushan Script event title",
+          "currentVersion": 22
         }
       },
-      "updatedAt": "2026-10-07T06:11:40.947Z"
+      "updatedAt": "2026-10-07T10:26:23.025Z"
     }
   }
 }
