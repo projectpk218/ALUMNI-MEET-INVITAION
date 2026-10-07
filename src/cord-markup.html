@@ -1,0 +1,21 @@
+<button class="invitation-thread" id="untie-invitation" type="button" aria-label="Untie to reveal your invitation" aria-controls="ceremony-content" aria-expanded="false">
+  <span class="thread-keepsake" aria-hidden="true"><span>For our dear alumni</span><i>✦</i></span>
+  <svg class="thread-bow" viewBox="0 0 260 200" aria-hidden="true">
+    <defs>
+      <filter id="cord-shadow" x="-100%" y="-100%" width="300%" height="400%"><feDropShadow dx="0" dy="2.8" stdDeviation="1.7" flood-color="#57391f" flood-opacity=".32"/></filter>
+      <pattern id="cord-fibres" width="4.2" height="4.2" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)"><path d="M0 0V4.2" stroke="#63431f" stroke-opacity=".32" stroke-width="1.25"/><path d="M1.3 0V4.2" stroke="#fff1c8" stroke-opacity=".65" stroke-width=".7"/></pattern>
+      <path id="cord-standing-left" d="M-500 82 C-220 80 -22 76 130 82"/>
+      <path id="cord-standing-right" d="M760 82 C480 80 282 76 134 82"/>
+      <path id="cord-tail-left" d="M129 85 C104 114 117 145 64 165"/>
+      <path id="cord-tail-right" d="M134 85 C165 112 176 147 213 166"/>
+      <path id="cord-loop-left" d="M130 79 C89 43 60 24 37 47 C12 80 71 103 130 86"/>
+      <path id="cord-loop-right" d="M134 79 C169 38 207 26 224 46 C251 80 187 103 134 86"/>
+      <path id="cord-binding" d="M124 74 C140 64 144 85 133 91 C125 94 122 86 125 78"/>
+      <path id="cord-crossing" d="M123 88 C123 83 130 77 139 75"/>
+    </defs>
+    <g class="cord-strands" filter="url(#cord-shadow)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      {{CORD_STRANDS}}
+    </g>
+  </svg>
+  <span class="thread-prompt">Tap the knot to untie</span>
+</button>

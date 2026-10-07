@@ -24,25 +24,27 @@
         "dist/homecoming.css",
         "dist/homecoming.js",
         "dist/event-config.js",
-        "dist/polish.css"
+        "dist/polish.css",
+        "src/cord-markup.html"
       ],
       "fingerprints": {
-        ".superdesign/design-system.md": "4aa9c8528b094f3451bd7af0bb271e127ab67bfdcc4fa24d8f706cfabb99ab12",
-        "src/homecoming.template.html": "c8dbbea5c7e07840738249adacebc68a4116923f3c93605df62724ab24ccda93",
+        ".superdesign/design-system.md": "aff9e8be7f23e1fe2f61f2122c0085c6a28ace516c2ba9df44d3762706aaa06f",
+        "src/homecoming.template.html": "26c681f621b9dbb9cbe26553a6476e8429b3d862a3a610060c5a0108378d938c",
         "dist/homecoming.css": "df7e4f61c3c723bef963055c99eaa4067c677eb3cf6cda75e94d35b44a118e27",
-        "dist/homecoming.js": "038e4c8ee666b344e16aa83b653a07cc9cdd5a568bfd8d751378ea8ffedc604a",
+        "dist/homecoming.js": "5ea283dbcebd18f7831d1e871ad76fd48086bed18c80dee4d512501b4682e906",
         "dist/event-config.js": "f8ecac91a2914c747dba179f2941e123af47dc03675a382ba1abdd91ee0b39fb",
-        "dist/polish.css": "256f9243f32384691da28c50bd374b7383215efe06c1e51cc974983fac4b0837"
+        "dist/polish.css": "ac39234066719c8d0d079c003fd511d426a085f64206890d7bd022ab69226202",
+        "src/cord-markup.html": "bdb1ae12842607c5beefab6223e4aab5a91822553aee47b0f2cb118bf79a6f80"
       },
       "components": [],
       "drafts": {
         "dbbf7212-e56b-4231-85ea-dae977e5a916": {
           "title": "Reminisce’26 — The Homecoming Invitation",
-          "visualDirection": "Sealed opening letter, large guest-operated cord with tension, loop pull-through and straightening, and supplied reunion soundtrack",
-          "currentVersion": 18
+          "visualDirection": "Sealed opening letter, keepsake sleeve with textured cord that tightens, slips through each loop, then falls away; supplied reunion soundtrack",
+          "currentVersion": 21
         }
       },
-      "updatedAt": "2026-10-07T01:46:12.886Z"
+      "updatedAt": "2026-10-07T06:11:40.947Z"
     }
   }
 }

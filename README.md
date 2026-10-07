@@ -8,4 +8,4 @@ The site includes no RSVP collection or invented contact information. It honors 
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/deploy-pages.yml` builds and publishes `dist/` from the `main` branch. Once this repository is connected to a GitHub repository, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**, then push `main` or run the workflow manually. The build automatically uses the GitHub Pages address for the Open Graph URL and preview image. A project repository serves the invitation at `https://OWNER.github.io/REPO/`; a repository named `OWNER.github.io` serves it at the root domain.
+The workflow in `.github/workflows/deploy-pages.yml` builds and publishes `dist/` from the `main` branch at [the public invitation](https://projectpk218.github.io/ALUMNI-MEET-INVITAION/). It uses that address for the Open Graph URL and preview image. The same static files are copied into the separate `SRM-MEETUP-INVITAION` repository connected to Netlify.

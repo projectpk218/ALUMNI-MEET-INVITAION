@@ -6,7 +6,9 @@ const event = context.window.ALUMNI_EVENT;
 const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const person = p => `<div class="person"><h3>${escape(p.name)}</h3><p class="person-role">${escape(p.role)}</p><p class="person-institution">${escape(p.institution)}</p>${p.location?`<p class="person-location">${escape(p.location)}</p>`:''}</div>`;
 const schedule = event.programme.map(([time,title])=>`<li><time>${escape(time)}</time><span>${escape(title)}</span></li>`).join('\n');
-let html = fs.readFileSync(path.join(root,'src/homecoming.template.html'),'utf8').replace('{{LEADERSHIP}}',event.leadership.map(person).join('\n')).replace('{{HOSTS}}',event.hosts.map(person).join('\n'));
+const strands = ['standing-left','standing-right','tail-left','tail-right','loop-left','loop-right','binding','crossing'].map(name => `<g class="cord-piece" data-cord="${name}"><use href="#cord-${name}" class="cord-edge"/><use href="#cord-${name}" class="cord-body"/><use href="#cord-${name}" class="cord-light"/><use href="#cord-${name}" class="cord-texture"/></g>`).join('\n');
+const cord = fs.readFileSync(path.join(root,'src/cord-markup.html'),'utf8').replace('{{CORD_STRANDS}}', strands);
+let html = fs.readFileSync(path.join(root,'src/homecoming.template.html'),'utf8').replace('{{CORD}}',cord).replace('{{LEADERSHIP}}',event.leadership.map(person).join('\n')).replace('{{HOSTS}}',event.hosts.map(person).join('\n'));
 if (process.env.SITE_URL) {
   const site = new URL(process.env.SITE_URL);
   if (site.protocol !== 'https:' || site.username || site.password) throw Error('SITE_URL must be a public HTTPS URL');
